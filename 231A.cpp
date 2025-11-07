@@ -33,12 +33,16 @@ using ll = long long;
 const int INF = 1e9 + 7;
 
 void solve() {
-    int w;
-    cin >> w;
-    if (w > 2 && w % 2 == 0)
-        cout << "YES"<<endl;
-    else
-        cout << "NO"<<endl;
+    int n;
+    cin>>n;
+    int solves=0;
+    for (int i = 0; i < n; i++) {
+        int a, b, c;
+        cin >> a >> b >> c;
+        if (a + b + c >= 2) solves++;
+    }
+
+    cout << solves << '\n';
 }
 
 int main()

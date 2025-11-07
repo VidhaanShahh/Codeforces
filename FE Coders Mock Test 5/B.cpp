@@ -9,6 +9,7 @@
 #include <queue>
 #include <unordered_set>
 #include <numeric>
+#include <climits>
 
 #define all(x) (x).begin(), (x).end()
 #define dbg(x) cout << "Line(" << __LINE__ << ") -> " << #x << " = " << (x) << endl;
@@ -33,12 +34,17 @@ using ll = long long;
 const int INF = 1e9 + 7;
 
 void solve() {
-    int w;
-    cin >> w;
-    if (w > 2 && w % 2 == 0)
-        cout << "YES"<<endl;
-    else
-        cout << "NO"<<endl;
+    int n,a,b;
+    cin>>n>>a>>b;
+    int c=INT_MAX;
+    for(int i=0;i<=a;i++){
+        for(int j=0;j<=b/2;j++){
+            if(i+2*j==n){
+                c=min(c,a*i+b*j);
+            }
+        }
+    }
+    cout<<c<<endl;
 }
 
 int main()
@@ -47,6 +53,8 @@ int main()
     cin.tie(nullptr);
     cout.tie(nullptr);
 
-    solve();
+    int TC;
+    cin >> TC;
+    while(TC--) solve(), cout << endl;
     return 0;
 }

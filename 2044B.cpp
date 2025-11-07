@@ -33,12 +33,21 @@ using ll = long long;
 const int INF = 1e9 + 7;
 
 void solve() {
-    int w;
-    cin >> w;
-    if (w > 2 && w % 2 == 0)
-        cout << "YES"<<endl;
-    else
-        cout << "NO"<<endl;
+    string a;
+    cin>>a;
+    int n=a.length();
+    for(int i=0;i<n;i++){
+        if(a[i]=='q'){
+            a[i]='p';
+        }
+        else if(a[i]=='p'){
+            a[i]='q';
+        }
+    }
+    for(int i=n-1;i>=0;i--){
+        cout<<a[i];
+    }
+    cout<<endl;
 }
 
 int main()
@@ -47,6 +56,8 @@ int main()
     cin.tie(nullptr);
     cout.tie(nullptr);
 
-    solve();
+    int TC;
+    cin >> TC;
+    while(TC--) solve(), cout << endl;
     return 0;
 }

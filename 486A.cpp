@@ -33,12 +33,18 @@ using ll = long long;
 const int INF = 1e9 + 7;
 
 void solve() {
-    int w;
-    cin >> w;
-    if (w > 2 && w % 2 == 0)
-        cout << "YES"<<endl;
-    else
-        cout << "NO"<<endl;
+    int n;
+    cin>>n;
+    int sum=0;
+    for(int i=1;i<=n;i++){
+        if(i%2!=0){
+            sum=sum+-1*i;
+        }
+        else{
+            sum=sum+i;
+        }
+    }
+    cout<<sum<<endl;
 }
 
 int main()

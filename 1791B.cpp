@@ -32,13 +32,38 @@ void smin(S &a, const T &b)
 using ll = long long;
 const int INF = 1e9 + 7;
 
+bool check(int x, int y){
+    if(x==1 && y==1){
+        return true;
+    }
+    return false;
+}
 void solve() {
-    int w;
-    cin >> w;
-    if (w > 2 && w % 2 == 0)
-        cout << "YES"<<endl;
-    else
-        cout << "NO"<<endl;
+    int n;
+    cin>>n;
+    string s;
+    cin>>s;
+    int x=0;
+    int y=0;
+    for(char c:s){
+        if(c=='U'){
+            y++;
+        }
+        else if(c=='D'){
+            y--;
+        }
+        else if(c=='R'){
+            x++;
+        }
+        else{
+            x--;
+        }
+        if(check(x,y)){
+            cout<<"YES"<<endl;;
+            return;
+        }
+    }
+    cout<<"NO"<<endl;
 }
 
 int main()
@@ -47,6 +72,8 @@ int main()
     cin.tie(nullptr);
     cout.tie(nullptr);
 
-    solve();
+    int TC;
+    cin >> TC;
+    while(TC--) solve(), cout << endl;
     return 0;
 }

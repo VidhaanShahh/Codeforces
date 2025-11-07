@@ -33,12 +33,18 @@ using ll = long long;
 const int INF = 1e9 + 7;
 
 void solve() {
-    int w;
-    cin >> w;
-    if (w > 2 && w % 2 == 0)
-        cout << "YES"<<endl;
-    else
-        cout << "NO"<<endl;
+    string s;
+    cin.ignore();
+    getline(cin,s);
+    int n=s.length();
+    string s1="";
+    s1=s1+s[0];
+    for(int i=1;i<n;i++){
+        if(s[i]==' '){
+            s1=s1+s[i+1];
+        }
+    }   
+    cout<<s1;
 }
 
 int main()
@@ -47,6 +53,8 @@ int main()
     cin.tie(nullptr);
     cout.tie(nullptr);
 
-    solve();
+    int TC;
+    cin >> TC;
+    while(TC--) solve(), cout << endl;
     return 0;
 }
