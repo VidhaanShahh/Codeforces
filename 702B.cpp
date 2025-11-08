@@ -39,11 +39,16 @@ void solve() {
     for(int i=0;i<n;i++){
         cin>>arr[i];
     }
-    int minVal=abs(arr[0]);
-    for(int i=1;i<n;i++){
-        minVal=min(minVal,abs(arr[i]));
+    int count=0;
+    for(int i=0;i<n;i++){
+        for(int j=i+1;j<n;j++){
+            int x=arr[i]+arr[j];
+            if((x&(x-1))==0){
+                count++;
+            }
+        }
     }
-    cout<<minVal<<endl;
+    cout<<count<<endl;
 }
 
 int main()
@@ -53,4 +58,5 @@ int main()
     cout.tie(nullptr);
 
     solve();
+    return 0;
 }

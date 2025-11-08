@@ -33,17 +33,14 @@ using ll = long long;
 const int INF = 1e9 + 7;
 
 void solve() {
-    int n;
-    cin>>n;
-    int arr[n];
-    for(int i=0;i<n;i++){
-        cin>>arr[i];
+    int a,b,c;
+    cin>>a>>b>>c;
+    if(a+b==c){
+        cout<<"+"<<endl;
     }
-    int minVal=abs(arr[0]);
-    for(int i=1;i<n;i++){
-        minVal=min(minVal,abs(arr[i]));
+    else{
+        cout<<"-"<<endl;
     }
-    cout<<minVal<<endl;
 }
 
 int main()
@@ -52,5 +49,7 @@ int main()
     cin.tie(nullptr);
     cout.tie(nullptr);
 
-    solve();
+    int TC;
+    cin >> TC;
+    while(TC--) solve(), cout << endl;
 }

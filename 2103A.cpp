@@ -39,11 +39,17 @@ void solve() {
     for(int i=0;i<n;i++){
         cin>>arr[i];
     }
-    int minVal=abs(arr[0]);
-    for(int i=1;i<n;i++){
-        minVal=min(minVal,abs(arr[i]));
+    int brr[n]={0};
+    for(int i=0;i<n;i++){
+        brr[arr[i]-1]++;
     }
-    cout<<minVal<<endl;
+    int sum=0;
+    for(int i=0;i<n;i++){
+        if(brr[i]>1){
+            sum=sum+(brr[i]-1);
+        }
+    }
+    cout<<n-sum<<endl;
 }
 
 int main()
@@ -52,5 +58,8 @@ int main()
     cin.tie(nullptr);
     cout.tie(nullptr);
 
-    solve();
+    int TC;
+    cin >> TC;
+    while(TC--) solve(), cout << endl;
+    return 0;
 }
