@@ -32,15 +32,28 @@ void smin(S &a, const T &b)
 using ll = long long;
 const int INF = 1e9 + 7;
 
+ll countDigits(ll n){
+    ll count=0;
+    while(n>0){
+        count++;
+        n=n/10;
+    }
+    return count;
+}
 void solve() {
-    int n;
-    cin>>n;
-    if(n%5==0){
-        cout<<n/5<<endl;
+    ll a,b,c,d;
+    cin>>a>>b>>c>>d;
+    int c1=0;
+    if(a<b){
+        c1++;
     }
-    else{
-        cout<<1+(n/5)<<endl;
+    if(a<c){
+        c1++;
     }
+    if(a<d){
+        c1++;
+    }
+    cout<<c1<<endl;
 }
 
 int main()
@@ -49,5 +62,8 @@ int main()
     cin.tie(nullptr);
     cout.tie(nullptr);
 
-    solve();
+    int TC;
+    cin >> TC;
+    while(TC--) solve(), cout << endl;
+    return 0;
 }

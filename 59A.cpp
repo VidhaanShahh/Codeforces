@@ -33,21 +33,25 @@ using ll = long long;
 const int INF = 1e9 + 7;
 
 void solve() {
-    int n;
-    cin>>n;
-    int arr[n];
-    if(n==1){
-        cout<<0<<endl;
-        return;
-    }
-    for(int i=0;i<n;i++){
-        cin>>arr[i];
-    }
-    
-    for(int i=0;i<n;i++){
-        if(i+1<n){
-
+    string s;
+    cin>>s;
+    int small=0;
+    int caps=0;
+    for(char c:s){
+        if(c>=65 && c<=90){
+            caps++;
         }
+        else if(c>=97 && c<=122){
+            small++;
+        }
+    }
+    if(caps>small){
+        transform(s.begin(),s.end(),s.begin(),::toupper);
+        cout<<s<<endl;
+    }
+    else{
+        transform(s.begin(),s.end(),s.begin(),::tolower);
+        cout<<s<<endl;
     }
 }
 
@@ -57,8 +61,5 @@ int main()
     cin.tie(nullptr);
     cout.tie(nullptr);
 
-    int TC;
-    cin >> TC;
-    while(TC--) solve(), cout << endl;
-    return 0;
+    solve();
 }

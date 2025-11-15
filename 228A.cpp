@@ -33,14 +33,18 @@ using ll = long long;
 const int INF = 1e9 + 7;
 
 void solve() {
-    int n;
-    cin>>n;
-    if(n%5==0){
-        cout<<n/5<<endl;
+    vector<ll> arr(4);
+    for(int i=0;i<4;i++){
+        cin>>arr[i];
     }
-    else{
-        cout<<1+(n/5)<<endl;
+    sort(arr.begin(),arr.end());
+    int c=0;
+    for(int i=1;i<4;i++){
+        if(arr[i]==arr[i-1]){
+            c++;
+        }
     }
+    cout<<c<<endl;
 }
 
 int main()

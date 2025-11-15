@@ -32,15 +32,21 @@ void smin(S &a, const T &b)
 using ll = long long;
 const int INF = 1e9 + 7;
 
-void solve() {
-    int n;
-    cin>>n;
-    if(n%5==0){
-        cout<<n/5<<endl;
+
+void solve(){
+    int n,t;
+    cin>>n>>t;
+    string s;
+    cin>>s;
+    while(t--){
+        for(int i=0;i<n-1;i++){
+            if(s[i]=='B' && s[i+1]=='G'){
+                swap(s[i],s[i + 1]);
+                i++; 
+            }
+        }
     }
-    else{
-        cout<<1+(n/5)<<endl;
-    }
+    cout<<s<<endl;
 }
 
 int main()

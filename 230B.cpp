@@ -32,14 +32,24 @@ void smin(S &a, const T &b)
 using ll = long long;
 const int INF = 1e9 + 7;
 
-void solve() {
-    int n;
-    cin>>n;
-    if(n%5==0){
-        cout<<n/5<<endl;
+ll countDigits(ll n){
+    ll count=0;
+    while(n>0){
+        count++;
+        n=n/10;
     }
-    else{
-        cout<<1+(n/5)<<endl;
+    return count;
+}
+bool check()
+void solve() {
+    ll n;
+    cin>>n;
+    ll arr[n];
+    for(ll i=0;i<n;i++){
+        cin>>arr[i];
+    }
+    for(ll x:arr){
+        
     }
 }
 

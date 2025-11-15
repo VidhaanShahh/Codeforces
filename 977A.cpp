@@ -33,14 +33,17 @@ using ll = long long;
 const int INF = 1e9 + 7;
 
 void solve() {
-    int n;
-    cin>>n;
-    if(n%5==0){
-        cout<<n/5<<endl;
+    ll n,k;
+    cin>>n>>k;
+    for(int i=0;i<k;i++){
+        if(n%10==0){
+            n=n/10;
+        }
+        else{
+            n--;
+        }
     }
-    else{
-        cout<<1+(n/5)<<endl;
-    }
+    cout<<n<<endl;
 }
 
 int main()

@@ -33,14 +33,22 @@ using ll = long long;
 const int INF = 1e9 + 7;
 
 void solve() {
-    int n;
+    ll n;
     cin>>n;
-    if(n%3!=0){
-        cout<<(3-n%3)<<endl;
+    int arr[n];
+    for(ll i=0;i<n;i++){
+        cin>>arr[i];
     }
-    else{
-        cout<<0<<endl;
+    for(int x:arr){
+        arr[x-1]++;
     }
+    for(ll i=0;i<n;i++){
+        if(arr[i]>2){
+            cout<<i+1<<endl;
+            return;
+        }
+    }
+    cout<<-1<<endl;
 }
 
 int main()
@@ -48,6 +56,7 @@ int main()
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
+
 
     int TC;
     cin >> TC;

@@ -33,16 +33,26 @@ using ll = long long;
 const int INF = 1e9 + 7;
 
 void solve() {
-    int n;
-    cin>>n;
-    if(n%5==0){
-        cout<<n/5<<endl;
+    string s;
+    cin>>s;
+    int arr[26]={0};
+    int n=s.length();
+    for(int i=0;i<n;i++){
+        arr[s[i]-97]++;
+    }
+    int c=0;
+    for(int x:arr){
+        if(x>0){
+            c++;
+        }
+    }
+    if(c&1){
+        cout<<"IGNORE HIM!"<<endl;
     }
     else{
-        cout<<1+(n/5)<<endl;
+        cout<<"CHAT WITH HER!"<<endl;
     }
 }
-
 int main()
 {
     ios_base::sync_with_stdio(false);
@@ -50,4 +60,5 @@ int main()
     cout.tie(nullptr);
 
     solve();
+    return 0;
 }

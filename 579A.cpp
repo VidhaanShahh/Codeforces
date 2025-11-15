@@ -33,14 +33,10 @@ using ll = long long;
 const int INF = 1e9 + 7;
 
 void solve() {
-    int n;
+    ll n;
     cin>>n;
-    if(n%5==0){
-        cout<<n/5<<endl;
-    }
-    else{
-        cout<<1+(n/5)<<endl;
-    }
+    int count=__builtin_popcountll(n);
+    cout<<count<<endl;
 }
 
 int main()
@@ -50,4 +46,5 @@ int main()
     cout.tie(nullptr);
 
     solve();
+    return 0;
 }

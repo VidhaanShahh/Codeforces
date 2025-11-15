@@ -34,13 +34,19 @@ const int INF = 1e9 + 7;
 
 void solve() {
     int n;
+    int sum=0;
     cin>>n;
-    if(n%5==0){
-        cout<<n/5<<endl;
+    int arr[n];
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+        sum=sum+arr[i];
     }
-    else{
-        cout<<1+(n/5)<<endl;
+    int p=sum%3;
+    if(p==0){
+        cout<<0<<endl;
+        return;
     }
+    
 }
 
 int main()
@@ -49,5 +55,8 @@ int main()
     cin.tie(nullptr);
     cout.tie(nullptr);
 
-    solve();
+    int TC;
+    cin >> TC;
+    while(TC--) solve(), cout << endl;
+    return 0;
 }

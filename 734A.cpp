@@ -35,11 +35,26 @@ const int INF = 1e9 + 7;
 void solve() {
     int n;
     cin>>n;
-    if(n%5==0){
-        cout<<n/5<<endl;
+    string s;
+    cin>>s;
+    int cA=0;
+    int cD=0;
+    for(char c:s){
+        if(c=='A'){
+            cA++;
+        }
+        else if(c=='D'){
+            cD++;
+        }
+    }
+    if(cA==cD){
+        cout<<"Friendship"<<endl;
+    }
+    else if(cA>cD){
+        cout<<"Anton"<<endl;
     }
     else{
-        cout<<1+(n/5)<<endl;
+        cout<<"Danik"<<endl;
     }
 }
 

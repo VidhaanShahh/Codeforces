@@ -33,14 +33,29 @@ using ll = long long;
 const int INF = 1e9 + 7;
 
 void solve() {
-    int n;
+    ll n;
     cin>>n;
-    if(n%5==0){
-        cout<<n/5<<endl;
+    ll count=0;
+    string s;
+    for(ll i=0;i<n;i++){
+        cin>>s;
+        if(s=="Tetrahedron"){
+            count=count+4;
+        }
+        else if(s=="Cube"){
+            count=count+6;
+        }
+        else if(s=="Octahedron"){
+            count=count+8;
+        }
+        else if(s=="Dodecahedron"){
+            count=count+12;
+        }
+        else{
+            count=count+20;
+        }
     }
-    else{
-        cout<<1+(n/5)<<endl;
-    }
+    cout<<count<<endl;
 }
 
 int main()

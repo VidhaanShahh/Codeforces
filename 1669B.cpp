@@ -33,14 +33,23 @@ using ll = long long;
 const int INF = 1e9 + 7;
 
 void solve() {
-    int n;
+    ll n;
     cin>>n;
-    if(n%5==0){
-        cout<<n/5<<endl;
+    int arr[n];
+    ll freq[n]={0};
+    for(ll i=0;i<n;i++){
+        cin>>arr[i];
     }
-    else{
-        cout<<1+(n/5)<<endl;
+    for(int x:arr){
+        freq[x-1]++;
     }
+    for(ll i=0;i<n;i++){
+        if(freq[i]>2){
+            cout<<i+1<<endl;
+            return;
+        }
+    }
+    cout<<-1<<endl;
 }
 
 int main()
@@ -49,5 +58,9 @@ int main()
     cin.tie(nullptr);
     cout.tie(nullptr);
 
-    solve();
+
+    int TC;
+    cin >> TC;
+    while(TC--) solve(), cout << endl;
+    return 0;
 }

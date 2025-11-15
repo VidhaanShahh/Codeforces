@@ -33,13 +33,15 @@ using ll = long long;
 const int INF = 1e9 + 7;
 
 void solve() {
-    int n;
-    cin>>n;
-    if(n%5==0){
-        cout<<n/5<<endl;
+    string s;
+    string t;
+    cin>>s>>t;
+    reverse(t.begin(),t.end());
+    if(s==t){
+        cout<<"YES"<<endl;
     }
     else{
-        cout<<1+(n/5)<<endl;
+        cout<<"NO"<<endl;
     }
 }
 

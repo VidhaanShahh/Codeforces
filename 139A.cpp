@@ -35,12 +35,16 @@ const int INF = 1e9 + 7;
 void solve() {
     int n;
     cin>>n;
-    if(n%5==0){
-        cout<<n/5<<endl;
+    int arr[7];
+    for(int i=0;i<7;i++){
+        cin>>arr[i];
     }
-    else{
-        cout<<1+(n/5)<<endl;
+    int i=0;
+    while(n>0){
+        n=n-arr[i];
+        i=(i+1)%7;
     }
+    cout<<(i)<<endl;
 }
 
 int main()

@@ -32,8 +32,8 @@ void smin(S &a, const T &b)
 using ll = long long;
 const int INF = 1e9 + 7;
 
-int countDigits(int n){
-    int count=0;
+ll countDigits(ll n){
+    ll count=0;
     while(n>0){
         count++;
         n=n/10;
@@ -41,11 +41,15 @@ int countDigits(int n){
     return count;
 }
 void solve() {
-    int n;
+    ll n;
     cin>>n;
-    int count=0;
-    for(int i=1;i<=n;i++){
-        int x=(int)pow(10,countDigits(i));
+    ll count=0;
+    if(n<=9){
+        cout<<n<<endl;
+        return;
+    }
+    for(ll i=1;i<=n;i++){
+        ll x=pow(10,countDigits(i));
         if(i%x==0){
             count++;
         }

@@ -33,13 +33,13 @@ using ll = long long;
 const int INF = 1e9 + 7;
 
 void solve() {
-    int n;
-    cin>>n;
-    if(n%5==0){
-        cout<<n/5<<endl;
+    string s;
+    cin>>s;
+    if(s=="abc" || s=="bac" || s=="cba" || s=="acb"){
+        cout<<"YES"<<endl;
     }
     else{
-        cout<<1+(n/5)<<endl;
+        cout<<"NO"<<endl;
     }
 }
 
@@ -49,5 +49,8 @@ int main()
     cin.tie(nullptr);
     cout.tie(nullptr);
 
-    solve();
+    int TC;
+    cin >> TC;
+    while(TC--) solve(), cout << endl;
+    return 0;
 }

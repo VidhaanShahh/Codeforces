@@ -33,14 +33,18 @@ using ll = long long;
 const int INF = 1e9 + 7;
 
 void solve() {
-    int n;
-    cin>>n;
-    if(n%5==0){
-        cout<<n/5<<endl;
+    int matrix[5][5];
+    int x,y;
+    for(int i=0;i<5;i++){
+        for(int j=0;j<5;j++){
+            cin>>matrix[i][j];
+            if(matrix[i][j]==1){
+                x=i;
+                y=j;
+            }
+        }
     }
-    else{
-        cout<<1+(n/5)<<endl;
-    }
+    cout<<abs(x-2)+abs(y-2)<<endl;
 }
 
 int main()
@@ -50,4 +54,5 @@ int main()
     cout.tie(nullptr);
 
     solve();
+    return 0;
 }

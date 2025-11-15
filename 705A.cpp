@@ -35,11 +35,12 @@ const int INF = 1e9 + 7;
 void solve() {
     int n;
     cin>>n;
-    if(n%5==0){
-        cout<<n/5<<endl;
-    }
-    else{
-        cout<<1+(n/5)<<endl;
+    string s="";
+    for(int i=1;i<=n;i++){
+        if(i&1){
+            s=s+"I hate ";
+        }
+        
     }
 }
 
