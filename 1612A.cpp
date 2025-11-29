@@ -33,18 +33,29 @@ using ll = long long;
 const int INF = 1e9 + 7;
 
 void solve() {
-    int n;
-    cin>>n;
-    int x=n%10;
-    int z=n;
-    int count=0;
-    while(z>0){
-        count++;
-        z=z/10;
+    int x,y;
+    cin>>x>>y;
+    if(((x+y)&1)){
+        cout<<-1<<" "<<-1<<endl;
+        return;
     }
-    int p=(x-1)*10;
-    int q=count*(count+1)/2;
-    cout<<p+q<<endl;
+    if(!(x&1) && !(y&1)){
+        cout<<x/2<<" "<<y/2<<endl;
+    }
+    else if((x&1) && (y&1)){
+        int m=max(x,y);
+        bool flag=false;
+        int t=2*m-x-y;
+        if(m==x){
+            flag=true;
+        }
+        if(flag){
+            cout<<t/2<<" "<<y<<endl;
+        }
+        else{
+            cout<<x<<" "<<t/2<<endl;
+        }
+    }
 }
 
 int main()

@@ -33,18 +33,16 @@ using ll = long long;
 const int INF = 1e9 + 7;
 
 void solve() {
-    int n;
-    cin>>n;
-    int x=n%10;
-    int z=n;
-    int count=0;
-    while(z>0){
-        count++;
-        z=z/10;
+    ll a,b,c;
+    cin>>a>>b>>c;
+    for(ll x=0;x<=c/a;x++){
+        ll t=c-a*x;
+        if(t%b==0){
+            cout<<"YES"<<endl;
+            return;
+        }
     }
-    int p=(x-1)*10;
-    int q=count*(count+1)/2;
-    cout<<p+q<<endl;
+    cout<<"NO"<<endl;
 }
 
 int main()
@@ -53,8 +51,6 @@ int main()
     cin.tie(nullptr);
     cout.tie(nullptr);
 
-    int TC;
-    cin >> TC;
-    while(TC--) solve(), cout << endl;
+    solve();
     return 0;
 }

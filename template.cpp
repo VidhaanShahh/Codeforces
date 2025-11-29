@@ -33,11 +33,7 @@ using ll = long long;
 const int INF = 1e9 + 7;
 
 void solve() {
-    int a,b;
-    cin >> a >> b;
-    if(a == b) cout << 0;
-    else if(a % b == 0 || b % a == 0) cout << 1;
-    else cout << 2;
+    
 }
 
 int main()

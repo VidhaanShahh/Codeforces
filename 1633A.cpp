@@ -33,18 +33,19 @@ using ll = long long;
 const int INF = 1e9 + 7;
 
 void solve() {
-    int n;
+    ll n;
     cin>>n;
-    int x=n%10;
-    int z=n;
-    int count=0;
-    while(z>0){
-        count++;
-        z=z/10;
+    if(n%7==0){
+        cout<<n<<endl;
+        return;
     }
-    int p=(x-1)*10;
-    int q=count*(count+1)/2;
-    cout<<p+q<<endl;
+    if(n%7<=n%10){
+        cout<<n-n%7<<endl;
+    }
+    else{
+        ll t=n/7;
+        cout<<(t+1)*7<<endl;
+    }
 }
 
 int main()
@@ -57,4 +58,5 @@ int main()
     cin >> TC;
     while(TC--) solve(), cout << endl;
     return 0;
+
 }

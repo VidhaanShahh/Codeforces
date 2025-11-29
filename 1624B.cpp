@@ -9,6 +9,7 @@
 #include <queue>
 #include <unordered_set>
 #include <numeric>
+#include <stack>
 
 #define all(x) (x).begin(), (x).end()
 #define dbg(x) cout << "Line(" << __LINE__ << ") -> " << #x << " = " << (x) << endl;
@@ -32,19 +33,33 @@ void smin(S &a, const T &b)
 using ll = long long;
 const int INF = 1e9 + 7;
 
-void solve() {
-    int n;
-    cin>>n;
-    int x=n%10;
-    int z=n;
-    int count=0;
-    while(z>0){
-        count++;
-        z=z/10;
+bool check(int a, int b){
+    if(a&1 && b&1){
+        return true;
     }
-    int p=(x-1)*10;
-    int q=count*(count+1)/2;
-    cout<<p+q<<endl;
+    else if(!(a&1) && !(b&1)){
+        return true;
+    }
+    return false;
+}
+void solve() {
+    long long a, b, c;
+    cin >> a >> b >> c;
+    if ((a + c) % 2 == 0 && (a + c) / 2 >= b && ((a + c) / 2) % b == 0) {
+        cout << "YES";
+        return;
+    }
+    long long A = 2*b - c;
+    if (A > 0 && A % a == 0) {
+        cout << "YES";
+        return;
+    }
+    long long C = 2*b - a;
+    if (C > 0 && C % c == 0) {
+        cout << "YES";
+        return;
+    }
+    cout << "NO";
 }
 
 int main()

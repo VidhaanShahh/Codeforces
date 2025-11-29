@@ -1,5 +1,6 @@
 {
     "files.associations": {
+        "*.dbclient-js": "javascript",
         "iostream": "cpp",
         "unordered_map": "cpp",
         "vector": "cpp",
@@ -10,6 +11,7 @@
         "algorithm": "cpp",
         "unordered_set": "cpp",
         "queue": "cpp",
-        "set": "cpp"
+        "set": "cpp",
+        "ostream": "cpp"
     }
 }

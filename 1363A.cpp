@@ -33,18 +33,42 @@ using ll = long long;
 const int INF = 1e9 + 7;
 
 void solve() {
-    int n;
-    cin>>n;
-    int x=n%10;
-    int z=n;
-    int count=0;
-    while(z>0){
-        count++;
-        z=z/10;
+    int n,x;
+    cin>>n>>x;
+    vector<int> v(n);
+    int sum=0;
+    int oddc=0;
+    int evenc=0;
+    if(x>n){
+        cout<<"No"<<endl;
+        return;
     }
-    int p=(x-1)*10;
-    int q=count*(count+1)/2;
-    cout<<p+q<<endl;
+    for(int i=0;i<n;i++){
+        cin>>v[i];
+        if(v[i]&1){
+            oddc++;
+        }
+        else{
+            evenc++;
+        }
+        sum=sum+v[i];
+    }
+    if(n==x){
+        if(sum&1){
+            cout<<"Yes"<<endl;
+        }
+        else{
+            cout<<"No"<<endl;
+        }
+    }
+    else{
+        if(oddc==0 && evenc!=0){
+            cout<<"No"<<endl;
+        }
+        else if(oddc>0 && evenc>0){
+            cout<<"Yes"<<endl;
+        }
+    }
 }
 
 int main()

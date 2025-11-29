@@ -33,19 +33,23 @@ using ll = long long;
 const int INF = 1e9 + 7;
 
 void solve() {
-    int n;
+    ll n;
     cin>>n;
-    int x=n%10;
-    int z=n;
-    int count=0;
-    while(z>0){
-        count++;
-        z=z/10;
+    vector<ll> v(n);
+    ll sum=0;
+    for(ll i=0;i<n;i++){
+        cin>>v[i];
+        sum=sum+v[i];
     }
-    int p=(x-1)*10;
-    int q=count*(count+1)/2;
-    cout<<p+q<<endl;
+    if(sum<n){
+        cout<<1<<endl;
+    }
+    else{
+        cout<<sum-n<<endl;
+    }
 }
+
+    
 
 int main()
 {

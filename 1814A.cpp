@@ -33,19 +33,16 @@ using ll = long long;
 const int INF = 1e9 + 7;
 
 void solve() {
-    int n,k;
+    ll n,k;
     cin>>n>>k;
-    bool flag=false;
-    for (int x = 0; x * 2 <= n; x++) {
-        int rem = n - 2 * x;
-        if (rem % k == 0) {
-            flag = true;
-            cout << "YES\n";
+    for (ll x=0;x*2<=n;x++){
+        ll rem=n-2*x;
+        if(rem%k==0){
+            cout<<"YES\n";
             return;
         }
     }
-
-    cout << "NO\n";
+    cout<<"NO\n";
 }
 
 int main()

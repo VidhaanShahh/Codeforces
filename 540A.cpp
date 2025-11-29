@@ -33,19 +33,25 @@ using ll = long long;
 const int INF = 1e9 + 7;
 
 void solve() {
-    int n;
+    ll n;
     cin>>n;
-    int x=n%10;
-    int z=n;
-    int count=0;
-    while(z>0){
-        count++;
-        z=z/10;
+    string s1,s2;
+    cin>>s1>>s2;
+    int sum=0;
+    for(ll i=0;i<n;i++){
+        int d1=s1[i]-'0';
+        int d2=s2[i]-'0';
+        int t=abs(d1-d2);
+        if(t>=5){
+            sum=sum+10-t;
+        }
+        else{
+            sum=sum+t;
+        }
     }
-    int p=(x-1)*10;
-    int q=count*(count+1)/2;
-    cout<<p+q<<endl;
+    cout<<sum<<endl;
 }
+
 
 int main()
 {
@@ -53,8 +59,5 @@ int main()
     cin.tie(nullptr);
     cout.tie(nullptr);
 
-    int TC;
-    cin >> TC;
-    while(TC--) solve(), cout << endl;
-    return 0;
+    solve();
 }
