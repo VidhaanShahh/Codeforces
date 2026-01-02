@@ -9,6 +9,8 @@
 #include <queue>
 #include <unordered_set>
 #include <numeric>
+#include <stack>
+
 
 #define all(x) (x).begin(), (x).end()
 #define dbg(x) cout << "Line(" << __LINE__ << ") -> " << #x << " = " << (x) << endl;
@@ -33,13 +35,38 @@ using ll = long long;
 const int INF = 1e9 + 7;
 
 void solve() {
-    ll n,k;
-    cin>>n>>k;
-    if(!(n&1) || !((n-k)&1)){
-        cout<<"YES"<<endl;
+    int n,m;
+    cin>>n>>m;
+    vector<int> v1(n);
+    vector<int> v2(m);
+    for(int i=0;i<n;i++){
+        cin>>v1.at(i);
+    }
+    for(int i=0;i<m;i++){
+        cin>>v2.at(i);
+    }
+    if(n==1 && m>1){
+        cout<<v1[0]<<endl;
+        return;
+    }
+    if(m==1 && n>1){
+        cout<<v2[0]<<endl;
+        return;
+    }
+    sort(v1.begin(),v1.end());
+    sort(v2.begin(),v2.end());
+    if(v1.at(0)==v2.at(0)){
+        cout<<v1.at(0)<<endl;
+    }
+    else if(v1.at(0)>v2.at(0)){
+        int x=v2.at(0);
+        int y=v1.at(0);
+        cout<<x*10+y<<endl;
     }
     else{
-        cout<<"NO"<<endl;
+        int x=v2.at(0);
+        int y=v1.at(0);
+        cout<<y*10+x<<endl;
     }
 }
 
@@ -49,8 +76,5 @@ int main()
     cin.tie(nullptr);
     cout.tie(nullptr);
 
-    int TC;
-    cin >> TC;
-    while(TC--) solve(), cout << endl;
-    return 0;
+    solve();
 }

@@ -33,13 +33,24 @@ using ll = long long;
 const int INF = 1e9 + 7;
 
 void solve() {
-    ll n,k;
-    cin>>n>>k;
-    if(!(n&1) || !((n-k)&1)){
-        cout<<"YES"<<endl;
+    ll n;
+    cin>>n;
+    vector<int> v(n);
+    ll s=0;
+    for(int i=0;i<n;i++){
+        cin>>v[i];
+        s=s^v[i];
+    }
+    if(n&1){
+        cout<<s<<endl;
     }
     else{
-        cout<<"NO"<<endl;
+        if(s==0){
+            cout<<3<<endl;
+        }
+        else{
+            cout<<-1<<endl;
+        }
     }
 }
 

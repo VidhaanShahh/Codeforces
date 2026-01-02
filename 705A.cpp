@@ -37,11 +37,20 @@ void solve() {
     cin>>n;
     string s="";
     for(int i=1;i<=n;i++){
-        if(i&1){
-            s=s+"I hate ";
+        if(i&1 && i!=n){
+            s=s+"I hate that ";
         }
-        
+        else if(!(i&1) && i!=n){
+            s=s+"I love that ";
+        }
+        else if(i&1 && i==n){
+            s=s+"I hate it";
+        }
+        else if(!(i&1) && i==n){
+            s=s+"I love it";
+        }
     }
+    cout<<s<<endl;
 }
 
 int main()

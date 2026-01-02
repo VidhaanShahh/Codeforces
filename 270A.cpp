@@ -33,9 +33,9 @@ using ll = long long;
 const int INF = 1e9 + 7;
 
 void solve() {
-    ll n,k;
-    cin>>n>>k;
-    if(!(n&1) || !((n-k)&1)){
+    int a;
+    cin>>a;
+    if(360%(180-a)==0){
         cout<<"YES"<<endl;
     }
     else{

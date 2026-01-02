@@ -33,13 +33,24 @@ using ll = long long;
 const int INF = 1e9 + 7;
 
 void solve() {
-    ll n,k;
-    cin>>n>>k;
-    if(!(n&1) || !((n-k)&1)){
-        cout<<"YES"<<endl;
+    ll x1,x2,x3,x4;
+    cin>>x1>>x2>>x3>>x4;
+    ll m=max(max(x1,x2),max(x3,x4));
+    ll a=m-x1;
+    ll b=m-x2;
+    ll c=m-x3;
+    ll d=m-x4;
+    if(a==0){
+        cout<<b<<" "<<c<<" "<<d;
     }
-    else{
-        cout<<"NO"<<endl;
+    else if(b==0){
+        cout<<a<<" "<<c<<" "<<d;
+    }
+    else if(c==0){
+        cout<<a<<" "<<b<<" "<<d;
+    }
+    else if(d==0){
+        cout<<b<<" "<<c<<" "<<a;
     }
 }
 
@@ -49,8 +60,5 @@ int main()
     cin.tie(nullptr);
     cout.tie(nullptr);
 
-    int TC;
-    cin >> TC;
-    while(TC--) solve(), cout << endl;
-    return 0;
+    solve();
 }

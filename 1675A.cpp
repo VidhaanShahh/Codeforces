@@ -9,6 +9,8 @@
 #include <queue>
 #include <unordered_set>
 #include <numeric>
+#include <stack>
+
 
 #define all(x) (x).begin(), (x).end()
 #define dbg(x) cout << "Line(" << __LINE__ << ") -> " << #x << " = " << (x) << endl;
@@ -33,13 +35,38 @@ using ll = long long;
 const int INF = 1e9 + 7;
 
 void solve() {
-    ll n,k;
-    cin>>n>>k;
-    if(!(n&1) || !((n-k)&1)){
+    ll a,b,c,x,y;
+    cin>>a>>b>>c>>x>>y;
+    if(a>=x && b>=y){
         cout<<"YES"<<endl;
+        return;
     }
-    else{
-        cout<<"NO"<<endl;
+    ll t;
+    if(a>=x && b<y){
+        t=y-b;
+        if(c>=t){
+            cout<<"YES"<<endl;
+        }
+        else{
+            cout<<"NO"<<endl;
+        }
+    }
+    else if(a<x && b>=y){
+        t=x-a;
+        if(c>=t){
+            cout<<"YES"<<endl;
+        }
+        else{
+            cout<<"NO"<<endl;
+        }
+    }
+    else if(a<x && b<y){
+        if(c>=x-a+y-b){
+            cout<<"YES"<<endl;
+        }
+        else{
+            cout<<"NO"<<endl;
+        }
     }
 }
 

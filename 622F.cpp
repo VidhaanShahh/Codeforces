@@ -9,6 +9,8 @@
 #include <queue>
 #include <unordered_set>
 #include <numeric>
+#include <stack>
+
 
 #define all(x) (x).begin(), (x).end()
 #define dbg(x) cout << "Line(" << __LINE__ << ") -> " << #x << " = " << (x) << endl;
@@ -35,12 +37,11 @@ const int INF = 1e9 + 7;
 void solve() {
     ll n,k;
     cin>>n>>k;
-    if(!(n&1) || !((n-k)&1)){
-        cout<<"YES"<<endl;
+    ll sum=0;
+    for(ll i=1;i<=n;i++){
+        sum=sum+pow(i,k);
     }
-    else{
-        cout<<"NO"<<endl;
-    }
+    cout<<sum%INF<<endl;
 }
 
 int main()
@@ -49,8 +50,5 @@ int main()
     cin.tie(nullptr);
     cout.tie(nullptr);
 
-    int TC;
-    cin >> TC;
-    while(TC--) solve(), cout << endl;
-    return 0;
+    solve();
 }

@@ -32,29 +32,25 @@ void smin(S &a, const T &b)
 using ll = long long;
 const int INF = 1e9 + 7;
 
-ll countDigits(ll n){
-    ll count=0;
-    while(n>0){
-        count++;
-        n=n/10;
-    }
-    return count;
-}
 void solve() {
     ll n;
     cin>>n;
     ll count=0;
-    if(n<=9){
+    if(n<=10){
         cout<<n<<endl;
         return;
     }
-    for(ll i=1;i<=n;i++){
-        ll x=pow(10,countDigits(i));
-        if(i%x==0){
-            count++;
-        }
+    ll x=n;
+    while(x>0){
+        x=x/10;
+        count++;
     }
-    cout<<count<<endl;
+    ll t=1;
+    for(ll i=1;i<count;i++){
+        t=t*10;
+    }
+    ll f=n/t;
+    cout<<9*(count-1)+f<<endl;
 }
 
 int main()

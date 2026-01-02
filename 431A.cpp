@@ -33,14 +33,26 @@ using ll = long long;
 const int INF = 1e9 + 7;
 
 void solve() {
-    ll n,k;
-    cin>>n>>k;
-    if(!(n&1) || !((n-k)&1)){
-        cout<<"YES"<<endl;
+    int a1,a2,a3,a4;
+    cin>>a1>>a2>>a3>>a4;
+    string s;
+    cin>>s;
+    int sum=0;
+    for(char c:s){
+        if(c=='1'){
+            sum=sum+a1;
+        }
+        else if(c=='2'){
+            sum=sum+a2;
+        }
+        else if(c=='3'){
+            sum=sum+a3;
+        }
+        else{
+            sum=sum+a4;
+        }
     }
-    else{
-        cout<<"NO"<<endl;
-    }
+    cout<<sum<<endl;
 }
 
 int main()
@@ -49,8 +61,5 @@ int main()
     cin.tie(nullptr);
     cout.tie(nullptr);
 
-    int TC;
-    cin >> TC;
-    while(TC--) solve(), cout << endl;
-    return 0;
+    solve();
 }
