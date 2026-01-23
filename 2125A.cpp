@@ -35,31 +35,44 @@ using ll = long long;
 const int INF = 1e9 + 7;
 
 void solve() {
-    ll n;
-    cin>>n;
-    vector<ll> v(n);
-    vector<ll> h(100001,0);
-    for(ll i=0;i<n;i++){
-        cin>>v.at(i);
-        h[v.at(i)]++;
-    }
-    if(n==2){
-        cout<<"YES"<<endl;
-        return;
-    }
-    ll maxf=0;
-    ll distinct=0;
-    for(ll i=0;i<100001;i++){
-        if(h.at(i)>0){
-            distinct++;
-            maxf=max(maxf,h.at(i));
+    string s;
+    cin>>s;
+    string s1="FFT";
+    string s2="NTT";
+    if(s.find(s1)!=string::npos || s.find(s2)!=string::npos){
+        int cN=0;
+        int cT=0;
+        int cF=0;
+        string s3="";
+        for(char c:s){
+            if(c=='N'){
+                cN++;
+            }
+            else if(c=='T'){
+                cT++;
+            }
+            else if(c=='F'){
+                cF++;
+            }
+            else{
+                s3=s3+c;
+            }
         }
-    }
-    if(distinct==1 || (distinct<=2 && maxf<=(n+1)/2)){
-        cout<<"YES"<<endl;
+        string ans="";
+        for(int i=0;i<cT;i++){
+            ans=ans+'T';
+        }
+        for(int i=0;i<cF;i++){
+            ans=ans+'F';
+        }
+        for(int i=0;i<cN;i++){
+            ans=ans+'N';
+        }
+        ans=ans+s3;
+        cout<<ans;
     }
     else{
-        cout<<"NO"<<endl;
+        cout<<s;
     }
 }
 

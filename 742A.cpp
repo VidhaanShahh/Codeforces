@@ -37,29 +37,21 @@ const int INF = 1e9 + 7;
 void solve() {
     ll n;
     cin>>n;
-    vector<ll> v(n);
-    vector<ll> h(100001,0);
-    for(ll i=0;i<n;i++){
-        cin>>v.at(i);
-        h[v.at(i)]++;
-    }
-    if(n==2){
-        cout<<"YES"<<endl;
+    if(n==0){
+        cout<<1;
         return;
     }
-    ll maxf=0;
-    ll distinct=0;
-    for(ll i=0;i<100001;i++){
-        if(h.at(i)>0){
-            distinct++;
-            maxf=max(maxf,h.at(i));
-        }
+    if((n+3)%4==0){
+        cout<<8;
     }
-    if(distinct==1 || (distinct<=2 && maxf<=(n+1)/2)){
-        cout<<"YES"<<endl;
+    else if((n+2)%4==0){
+        cout<<4;
     }
-    else{
-        cout<<"NO"<<endl;
+    else if((n+1)%4==0){
+        cout<<2;
+    }
+    else if(n%4==0){
+        cout<<6;
     }
 }
 
@@ -69,8 +61,5 @@ int main()
     cin.tie(nullptr);
     cout.tie(nullptr);
 
-    int TC;
-    cin >> TC;
-    while(TC--) solve(), cout << endl;
-    return 0;
+    solve();
 }

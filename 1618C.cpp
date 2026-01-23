@@ -34,33 +34,51 @@ void smin(S &a, const T &b)
 using ll = long long;
 const int INF = 1e9 + 7;
 
+ll gcd(ll a,ll b){
+    while(b!=0){
+        a=a%b;
+        swap(a,b);
+    }
+    return a;
+}
 void solve() {
     ll n;
     cin>>n;
     vector<ll> v(n);
-    vector<ll> h(100001,0);
+    ll ogcd=0;
+    ll egcd=0;
     for(ll i=0;i<n;i++){
         cin>>v.at(i);
-        h[v.at(i)]++;
-    }
-    if(n==2){
-        cout<<"YES"<<endl;
-        return;
-    }
-    ll maxf=0;
-    ll distinct=0;
-    for(ll i=0;i<100001;i++){
-        if(h.at(i)>0){
-            distinct++;
-            maxf=max(maxf,h.at(i));
+        if(i&1){
+            ogcd=gcd(ogcd,v.at(i));
+        }
+        else{
+            egcd=gcd(egcd,v.at(i));
         }
     }
-    if(distinct==1 || (distinct<=2 && maxf<=(n+1)/2)){
-        cout<<"YES"<<endl;
+    bool flag=true;
+    for(ll i=1;i<n;i=i+2){
+        if(v.at(i)%egcd==0){
+            flag=false;
+            break;
+        }
     }
-    else{
-        cout<<"NO"<<endl;
+    if(flag){
+        cout<<egcd<<endl;
+        return;
     }
+    flag=true;
+    for(ll i=0;i<n;i=i+2){
+        if(v.at(i)%ogcd==0){
+            flag=false;
+            break;
+        }
+    }
+    if(flag){
+        cout<<ogcd<<endl;
+        return;
+    }
+    cout<<0<<endl;
 }
 
 int main()

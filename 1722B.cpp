@@ -35,32 +35,22 @@ using ll = long long;
 const int INF = 1e9 + 7;
 
 void solve() {
-    ll n;
+    int n;
     cin>>n;
-    vector<ll> v(n);
-    vector<ll> h(100001,0);
-    for(ll i=0;i<n;i++){
-        cin>>v.at(i);
-        h[v.at(i)]++;
-    }
-    if(n==2){
-        cout<<"YES"<<endl;
-        return;
-    }
-    ll maxf=0;
-    ll distinct=0;
-    for(ll i=0;i<100001;i++){
-        if(h.at(i)>0){
-            distinct++;
-            maxf=max(maxf,h.at(i));
+    string s;
+    cin>>s;
+    string s1;
+    cin>>s1;
+    for(int i=0;i<n;i++){
+        if(s[i]==s1[i] || (s[i]=='B' && s1[i]=='G') || (s[i]=='G' && s1[i]=='B')){
+            continue;
+        }
+        else{
+            cout<<"NO";
+            return;
         }
     }
-    if(distinct==1 || (distinct<=2 && maxf<=(n+1)/2)){
-        cout<<"YES"<<endl;
-    }
-    else{
-        cout<<"NO"<<endl;
-    }
+    cout<<"YES";
 }
 
 int main()

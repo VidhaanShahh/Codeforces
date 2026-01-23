@@ -10,7 +10,7 @@
 #include <unordered_set>
 #include <numeric>
 #include <stack>
-
+#include <iomanip>
 
 #define all(x) (x).begin(), (x).end()
 #define dbg(x) cout << "Line(" << __LINE__ << ") -> " << #x << " = " << (x) << endl;
@@ -35,31 +35,26 @@ using ll = long long;
 const int INF = 1e9 + 7;
 
 void solve() {
-    ll n;
-    cin>>n;
-    vector<ll> v(n);
-    vector<ll> h(100001,0);
-    for(ll i=0;i<n;i++){
-        cin>>v.at(i);
-        h[v.at(i)]++;
+    double A,B,C;
+    cin>>A>>B>>C;
+    double D=B*B-4*A*C;
+    if(D<0){
+        cout<<-1;
     }
-    if(n==2){
-        cout<<"YES"<<endl;
-        return;
-    }
-    ll maxf=0;
-    ll distinct=0;
-    for(ll i=0;i<100001;i++){
-        if(h.at(i)>0){
-            distinct++;
-            maxf=max(maxf,h.at(i));
-        }
-    }
-    if(distinct==1 || (distinct<=2 && maxf<=(n+1)/2)){
-        cout<<"YES"<<endl;
+    else if(D==0){
+        cout<<1<<endl;
+        cout<<fixed<<setprecision(10)<<(-B)/(2*A);
     }
     else{
-        cout<<"NO"<<endl;
+        cout<<2<<endl;
+        double d=sqrt(D);
+        double r1=(-B-d)/(2*A);
+        double r2=(-B+d)/(2*A);
+        if(r1>r2){
+            swap(r1,r2);
+        }
+        cout<<fixed<<setprecision(10)<<r1<<endl;
+        cout<<fixed<<setprecision(10)<<r2;
     }
 }
 
@@ -69,8 +64,5 @@ int main()
     cin.tie(nullptr);
     cout.tie(nullptr);
 
-    int TC;
-    cin >> TC;
-    while(TC--) solve(), cout << endl;
-    return 0;
+    solve();
 }

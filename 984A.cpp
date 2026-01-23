@@ -38,28 +38,15 @@ void solve() {
     ll n;
     cin>>n;
     vector<ll> v(n);
-    vector<ll> h(100001,0);
     for(ll i=0;i<n;i++){
         cin>>v.at(i);
-        h[v.at(i)]++;
     }
-    if(n==2){
-        cout<<"YES"<<endl;
-        return;
-    }
-    ll maxf=0;
-    ll distinct=0;
-    for(ll i=0;i<100001;i++){
-        if(h.at(i)>0){
-            distinct++;
-            maxf=max(maxf,h.at(i));
-        }
-    }
-    if(distinct==1 || (distinct<=2 && maxf<=(n+1)/2)){
-        cout<<"YES"<<endl;
+    sort(v.begin(),v.end());
+    if(n&1){
+        cout<<v[n/2];
     }
     else{
-        cout<<"NO"<<endl;
+        cout<<v[n/2-1];
     }
 }
 
@@ -69,8 +56,6 @@ int main()
     cin.tie(nullptr);
     cout.tie(nullptr);
 
-    int TC;
-    cin >> TC;
-    while(TC--) solve(), cout << endl;
+    solve();
     return 0;
 }

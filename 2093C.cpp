@@ -34,33 +34,30 @@ void smin(S &a, const T &b)
 using ll = long long;
 const int INF = 1e9 + 7;
 
-void solve() {
-    ll n;
-    cin>>n;
-    vector<ll> v(n);
-    vector<ll> h(100001,0);
-    for(ll i=0;i<n;i++){
-        cin>>v.at(i);
-        h[v.at(i)]++;
+bool check(ll n){
+    if(n<=1){
+        return false;
     }
-    if(n==2){
-        cout<<"YES"<<endl;
-        return;
+    if(n<=3){
+        return true;
     }
-    ll maxf=0;
-    ll distinct=0;
-    for(ll i=0;i<100001;i++){
-        if(h.at(i)>0){
-            distinct++;
-            maxf=max(maxf,h.at(i));
+    if(n%2==0 || n%3==0){
+        return false;
+    }
+    for(ll i=5;i*i<=n;i++){
+        if(n%i==0 || n%(i+2)==0){
+            return false;
         }
     }
-    if(distinct==1 || (distinct<=2 && maxf<=(n+1)/2)){
-        cout<<"YES"<<endl;
-    }
-    else{
+    return true;
+}
+void solve() {
+    ll x,k;
+    cin>>x>>k;
+    if(!check(x)){
         cout<<"NO"<<endl;
     }
+    
 }
 
 int main()

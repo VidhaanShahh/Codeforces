@@ -35,32 +35,16 @@ using ll = long long;
 const int INF = 1e9 + 7;
 
 void solve() {
-    ll n;
+    int n;
     cin>>n;
-    vector<ll> v(n);
-    vector<ll> h(100001,0);
-    for(ll i=0;i<n;i++){
-        cin>>v.at(i);
-        h[v.at(i)]++;
+    vector<int> v(n);
+    unordered_set<int> us;
+    for(int i=0;i<n;i++){
+        cin>>v[i];
+        us.insert(v.at(i));
     }
-    if(n==2){
-        cout<<"YES"<<endl;
-        return;
-    }
-    ll maxf=0;
-    ll distinct=0;
-    for(ll i=0;i<100001;i++){
-        if(h.at(i)>0){
-            distinct++;
-            maxf=max(maxf,h.at(i));
-        }
-    }
-    if(distinct==1 || (distinct<=2 && maxf<=(n+1)/2)){
-        cout<<"YES"<<endl;
-    }
-    else{
-        cout<<"NO"<<endl;
-    }
+    int n1=us.size();
+    
 }
 
 int main()

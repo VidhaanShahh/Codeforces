@@ -34,33 +34,22 @@ void smin(S &a, const T &b)
 using ll = long long;
 const int INF = 1e9 + 7;
 
+ll gcd(ll a,ll b){
+    while(b!=0){
+        a=a%b;
+        swap(a,b);
+    }
+    return a;
+}
 void solve() {
-    ll n;
-    cin>>n;
-    vector<ll> v(n);
-    vector<ll> h(100001,0);
-    for(ll i=0;i<n;i++){
-        cin>>v.at(i);
-        h[v.at(i)]++;
+    ll arr[7];
+    for(int i=0;i<7;i++){
+        cin>>arr[i];
     }
-    if(n==2){
-        cout<<"YES"<<endl;
-        return;
-    }
-    ll maxf=0;
-    ll distinct=0;
-    for(ll i=0;i<100001;i++){
-        if(h.at(i)>0){
-            distinct++;
-            maxf=max(maxf,h.at(i));
-        }
-    }
-    if(distinct==1 || (distinct<=2 && maxf<=(n+1)/2)){
-        cout<<"YES"<<endl;
-    }
-    else{
-        cout<<"NO"<<endl;
-    }
+    ll a=arr[0];
+    ll b=arr[1];
+    ll c=arr[6]-a-b;
+    cout<<a<<" "<<b<<" "<<c<<endl;
 }
 
 int main()
