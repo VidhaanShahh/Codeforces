@@ -38,18 +38,21 @@ void solve() {
     int n;
     cin>>n;
     vector<int> v(n);
-    for(int i=0;i<n;i++){
-        cin>>v.at(i);
+    for(int i=0; i<n; i++) cin>>v[i];
+    int c=0;
+    int p1=v[0]+v[1];
+    if(p1==7){
+        c++;
     }
-    vector<int> h(n,0);
-    for(int i=0;i<n;i++){
-        h.at(v.at(i)-1)++;
+    int k=2;
+    for(int i=2; i<n; i++){
+        p1=p1-v[k-2]+v[i];
+        if(p1==7){
+            c++;
+        }
+        k++;
     }
-    int max_count = 0;
-    for(int i=0;i<n;i++){
-        max_count = max(max_count, h.at(i));
-    }
-    cout<<max_count<<endl;
+    cout<<c<<endl;
 }
 
 int main()

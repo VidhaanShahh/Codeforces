@@ -38,18 +38,30 @@ void solve() {
     int n;
     cin>>n;
     vector<int> v(n);
+    vector<int> c1;
+    vector<int> c2;
+    vector<int> c3;
     for(int i=0;i<n;i++){
         cin>>v.at(i);
+        if(v[i]==1){
+            c1.push_back(i+1);
+        }
+        else if(v[i]==2){
+            c2.push_back(i+1);
+        }   
+        else{
+            c3.push_back(i+1);
+        }
     }
-    vector<int> h(n,0);
-    for(int i=0;i<n;i++){
-        h.at(v.at(i)-1)++;
-    }
-    int max_count = 0;
-    for(int i=0;i<n;i++){
-        max_count = max(max_count, h.at(i));
+    int max_count = min(c1.size(), min(c2.size(), c3.size()));
+    if(max_count==0){
+        cout<<0<<endl;
+        return;
     }
     cout<<max_count<<endl;
+    for(int i=0;i<max_count;i++){
+        cout<<c1.at(i)<<" "<<c2.at(i)<<" "<<c3.at(i)<<endl;
+    }
 }
 
 int main()
@@ -58,8 +70,6 @@ int main()
     cin.tie(nullptr);
     cout.tie(nullptr);
 
-    int TC;
-    cin >> TC;
-    while(TC--) solve(), cout << endl;
+    solve();
     return 0;
 }

@@ -1,61 +1,48 @@
-#include <iostream>
-#include <vector>
-#include <cmath>
-#include <string>
-#include <algorithm>
-#include <unordered_map>
-#include <map>
-#include <set>
-#include <queue>
-#include <unordered_set>
-#include <numeric>
-#include <stack>
-
-
-#define all(x) (x).begin(), (x).end()
-#define dbg(x) cout << "Line(" << __LINE__ << ") -> " << #x << " = " << (x) << endl;
-
+#include <bits/stdc++.h>
 using namespace std;
 
-template <typename S, typename T>
-void smax(S &a, const T &b)
-{
-    if (a < b)
-        a = b;
-};
-
-template <typename S, typename T>
-void smin(S &a, const T &b)
-{
-    if (a > b)
-        a = b;
-};
-
-using ll = long long;
-const int INF = 1e9 + 7;
-
-void solve() {
-    ll n;
-    cin>>n;
-    vector<int> a(n);
-    for(int i=0;i<n;i++){
-        cin>>a.at(i);
-    }
-    vector<int> p(n);
-    for(int i=0;i<n;i++){
-        cin>>p.at(i);
-    }
-    
-}
-
-int main()
-{
-    ios_base::sync_with_stdio(false);
+int main() {
+    ios::sync_with_stdio(false);
     cin.tie(nullptr);
-    cout.tie(nullptr);
 
-    int TC;
-    cin >> TC;
-    while(TC--) solve(), cout << endl;
-    return 0;
+    int t;
+    cin >> t;
+    while (t--) {
+        int n;
+        cin >> n;
+
+        vector<int> a(n + 1);
+        for (int i = 1; i <= n; i++) cin >> a[i];
+
+        vector<int> vis(n + 1, 0);
+        bool ok = true;
+
+        for (int i = 1; i <= n; i++) {
+            if (vis[i]) continue;
+
+            vector<int> idx, vals;
+
+            int x = i;
+            while (x <= n) {
+                vis[x] = 1;
+                idx.push_back(x);
+                vals.push_back(a[x]);
+                x *= 2;
+            }
+
+            sort(idx.begin(), idx.end());
+            sort(vals.begin(), vals.end());
+
+            for (int j = 0; j < (int)idx.size(); j++) {
+                if (idx[j] != vals[j]) {
+                    ok = false;
+                    break;
+                }
+            }
+
+            if (!ok) break;
+        }
+
+        cout << (ok ? "YES\n" : "NO\n");
+    }
 }

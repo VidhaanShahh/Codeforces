@@ -35,21 +35,15 @@ using ll = long long;
 const int INF = 1e9 + 7;
 
 void solve() {
-    int n;
+    ll n;
     cin>>n;
-    vector<int> v(n);
-    for(int i=0;i<n;i++){
-        cin>>v.at(i);
+    int cnt=0;
+    for(int i=1;i<n;i++){
+        if(n%i==0){
+            cnt++;
+        }
     }
-    vector<int> h(n,0);
-    for(int i=0;i<n;i++){
-        h.at(v.at(i)-1)++;
-    }
-    int max_count = 0;
-    for(int i=0;i<n;i++){
-        max_count = max(max_count, h.at(i));
-    }
-    cout<<max_count<<endl;
+    cout<<cnt<<endl;
 }
 
 int main()
@@ -58,8 +52,6 @@ int main()
     cin.tie(nullptr);
     cout.tie(nullptr);
 
-    int TC;
-    cin >> TC;
-    while(TC--) solve(), cout << endl;
+    solve();
     return 0;
 }
